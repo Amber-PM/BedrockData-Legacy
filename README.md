@@ -11,28 +11,25 @@
 	<a href="LICENSE"><img src="https://img.shields.io/badge/License-LGPL--3.0-blue.svg" alt="License" /></a>
 </p>
 
-# BedrockData (Amber-PM)
+# BedrockData-Legacy (Amber-PM) — MCPE 1.2.13 (protocol 223)
 
-Data blobs used by **AmberPM** for its primary multi-version range: **v1.20.0 (protocol 589)** through **v1.26.30/40 (protocol ~1001-2168)**.
-
-Sourced from `vendor/vapebw/bedrock-data` inside the AmberPM project.
+Original data blobs from the **PocketMine-MP** server for wire protocol **223** (Minecraft: Bedrock/Pocket Edition **1.2.13**), extracted from the real historical source code for that version — not reconstructed data or compatibility shims.
 
 ## Contents
 
 ```
-resources/vanilla/
+resources/
+├── creativeitems.json    # Creative inventory item list for the 1.2.13 client
+├── recipes.json          # Crafting/furnace recipes recognized by the 1.2.13 client
+└── runtimeid_table.json  # Block runtime-ID table expected by the 1.2.13 client
 ```
 
-Per-protocol data snapshots (block state maps, item ID maps, runtime-ID tables, biome definitions, creative items, recipes, etc.) covering every modern protocol version AmberPM supports concurrently.
+## Known issues
 
-## Note
-
-This repo does **not** include data for legacy protocol 223 (MCPE 1.2.13) — that version predates the concepts these files describe (item type dictionary handshake, block-palette handshake, etc.) and is handled by a separate legacy compatibility layer instead. See [BedrockData-Legacy](https://github.com/Amber-PM/BedrockData-Legacy) and the `ADDING_LEGACY_VERSIONS.md` / `KNOWN_ISSUES.md` docs in the full Amber source repo for details.
+Protocol 223 support in AmberPM is **experimental**. See [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md) for the current list of reproducible, unresolved problems affecting this legacy protocol (unreliable crafting results, recipe-book crashes, cross-version entity visibility issues).
 
 ## Origin
 
-Extracted from `PockeT/vendor/vapebw/bedrock-data/` of the Amber-PM/Amber project.
+Extracted from `src/pocketmine/resources/` of the `PocketMine-MP-MultiProtocol` project (`master` branch), where `ProtocolInfo::CURRENT_PROTOCOL = 223` and `ProtocolInfo::MINECRAFT_VERSION = 'v1.2.13'`.
 
-## Origin
-
-Extracted from `PockeT/vendor/vapebw/bedrock-data/` of the Amber-PM/Amber project.
+Sibling repo: [BedrockProtocol-Legacy](https://github.com/Amber-PM/BedrockProtocol-Legacy) · Full source: [Bedrock-MultiProtocol-Legacy](https://github.com/Amber-PM/Bedrock-MultiProtocol-Legacy)
