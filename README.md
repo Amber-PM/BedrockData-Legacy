@@ -1,18 +1,34 @@
-# BedrockData-Legacy (Amber-PM) — MCPE 1.2.13 (protocol 223)
+<p align="center">
+	<a href="https://github.com/Amber-PM/Amber">
+		<img src="https://raw.githubusercontent.com/Amber-PM/Amber/main/.github/readme/amberpm.png" width="128" height="128" alt="AmberPM Logo" title="AmberPM" />
+	</a><br>
+	<b>Part of AmberPM — a high-performance, multi-version fork of PocketMine-MP written in PHP</b>
+</p>
 
-Datos "blob" originales del servidor **PocketMine-MP** para el protocolo **223** (Minecraft: Bedrock/Pocket Edition **1.2.13**), extraídos del código fuente histórico real de esa versión — no son datos reconstruidos ni shims de compatibilidad.
+<p align="center">
+	<a href="https://github.com/Amber-PM/Amber"><img alt="AmberPM main repo" src="https://img.shields.io/badge/AmberPM-main%20repo-blue"></a>
+	<a href="https://discord.gg/k55gScjTs3"><img src="https://img.shields.io/badge/Discord-Chat-5865F2?logo=discord&logoColor=white" alt="Discord" /></a>
+	<a href="LICENSE"><img src="https://img.shields.io/badge/License-LGPL--3.0-blue.svg" alt="License" /></a>
+</p>
 
-## Contenido
+# BedrockData (Amber-PM)
+
+Data blobs used by **AmberPM** for its primary multi-version range: **v1.20.0 (protocol 589)** through **v1.26.30/40 (protocol ~1001-2168)**.
+
+Sourced from `vendor/vapebw/bedrock-data` inside the AmberPM project.
+
+## Contents
 
 ```
-resources/
-├── creativeitems.json    # Lista de ítems del inventario creativo para el cliente 1.2.13
-├── recipes.json          # Recetas de crafteo/horno reconocidas por el cliente 1.2.13
-└── runtimeid_table.json  # Tabla de runtime IDs de bloques que espera el cliente 1.2.13
+resources/vanilla/
 ```
 
-## Origen
+Per-protocol data snapshots (block state maps, item ID maps, runtime-ID tables, biome definitions, creative items, recipes, etc.) covering every modern protocol version AmberPM supports concurrently.
 
-Extraído de `src/pocketmine/resources/` del proyecto `PocketMine-MP-MultiProtocol` (rama `master`), donde `ProtocolInfo::CURRENT_PROTOCOL = 223` y `ProtocolInfo::MINECRAFT_VERSION = 'v1.2.13'`.
+## Note
 
-Repo hermano: [BedrockProtocol-Legacy](https://github.com/Amber-PM/BedrockProtocol-Legacy) · Fuente completa: [Bedrock-MultiProtocol-Legacy](https://github.com/Amber-PM/Bedrock-MultiProtocol-Legacy)
+This repo does **not** include data for legacy protocol 223 (MCPE 1.2.13) — that version predates the concepts these files describe (item type dictionary handshake, block-palette handshake, etc.) and is handled by a separate legacy compatibility layer instead. See [BedrockData-Legacy](https://github.com/Amber-PM/BedrockData-Legacy) and the `ADDING_LEGACY_VERSIONS.md` / `KNOWN_ISSUES.md` docs in the full Amber source repo for details.
+
+## Origin
+
+Extracted from `PockeT/vendor/vapebw/bedrock-data/` of the Amber-PM/Amber project.
